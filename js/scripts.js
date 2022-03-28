@@ -20,4 +20,5 @@ let pokemonList = [
         types: ["fire", "grass"],
         weaknesses: ["fire", "psychic", "flying", "ice"],
     },
-]
+];
+console.log(pokemonList);
