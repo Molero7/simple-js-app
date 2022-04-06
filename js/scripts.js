@@ -1,34 +1,56 @@
-let pokemonList = [
-    {
-        name: "Charmander",
-        number: "1",
-        height: 2,
-        types: ["fire"],
-        weaknesses: ["water", "ground", "rock"],
-    },
-    {
-        name: "Wartortle",
-        number: "2",
-        height: 3.03,
-        types: ["water"],
-        weaknesses: ["grass", "eletric"],
-    },
-    {
-        name: "Bulbasaur",
-        number: "3",
-        height: 2.04,
-        types: ["grass", "poison"],
-        weaknesses: ["fire", "psychic", "flying", "ice"],
-    },
-];
-for (let i = 0; i < pokemonList.length; i++) {
-    let statement = "";
-    if (`${pokemonList[i].height}` >= 3) {
-        statement = "- Wow, that's big!";
-    } else {
-        statement = "";
+
+let pokemonRepository = (function () {
+    let pokemonList = [
+        {
+            name: "Charmander",
+            number: "1",
+            height: 2,
+            types: ["fire"],
+            weaknesses: ["water", "ground", "rock"],
+        },
+        {
+            name: "Wartortle",
+            number: "2",
+            height: 3.03,
+            types: ["water"],
+            weaknesses: ["grass", "eletric"],
+        },
+        {
+            name: "Bulbasaur",
+            number: "3",
+            height: 2.04,
+            types: ["grass", "poison"],
+            weaknesses: ["fire", "psychic", "flying", "ice"],
+        },
+    ];
+    function add(pokemon) {
+        pokemonList.push(pokenmon);
     }
+
+    function getAll() {
+        return pokemonList;
+    }
+
+    return {
+        add: add,
+        getAll: getAll,
+    };
+})();
+
+let pokemonList = pokemonRepository.getAll();
+pokemonList.forEach(function (pokemon) {
+    let statement = "";
+    pokemon.height >= 3 ? (statement = "-Wow, that is big")
+        : statement = "";
     document.write(
-        `<div>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${statement}</div>`
+        `<div> ${pokemon.name} (heigth: ${pokemon.height}) ${statement}</div>`
     );
-}
+});
+
+
+
+
+
+
+
+
